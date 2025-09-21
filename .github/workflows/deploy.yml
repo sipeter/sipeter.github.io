@@ -1,0 +1,51 @@
+# deploy.yml
+
+name: Deploy Hexo Blog
+
+# 控制触发工作流的条件
+on:
+  push:
+    branches:
+      - source  # 只在 source 分支被推送时触发
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 系统作为运行环境
+
+    steps:
+      # 第一步：检出你的 `source` 分支的代码
+      - name: Checkout source branch
+        uses: actions/checkout@v3
+        with:
+          ref: source
+
+      # 第二步：设置 Node.js 环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # 可以根据需要选择 Node.js 版本
+          cache: 'npm' # 缓存 npm 依赖，加快后续构建速度
+
+      # 第三步：安装项目依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 第四步：生成静态网站文件
+      - name: Generate static files
+        run: npx hexo generate
+
+      # 第五步：配置部署环境
+      - name: Setup deployment environment
+        env:
+          HEXO_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_KEY }} # 从 Secrets 中读取私钥
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$HEXO_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.name "sipeter" # 设置部署 commit 的作者名
+          git config --global user.email "swenbo@gmail.com" # 设置部署 commit 的作者邮箱
+
+      # 第六步：部署到 `main` 分支
+      - name: Deploy to main branch
+        run: npx hexo deploy

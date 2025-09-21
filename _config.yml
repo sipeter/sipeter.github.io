@@ -96,9 +96,12 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  # 下面所有项，前面都有两个空格
+  type: 'git'
+  repo: git@github.com:sipeter/sipeter.github.io.git
+  branch: main
