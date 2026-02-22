@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="今天正式发布 Zian（至安）。从 2026 年 1 月 19 日立项建库，到今天 2 月 18 日，历时正好一个月。 这是我开发的第二个 APP。第一个是专为朋友定制的转写软件 SunnyScribe（最初使用 Python 开发）。后来随着功能不断叠加，它逐渐演变成了一个专业的转写工具。 做 Zian 这个语音输入法算是一个突发奇想，其实有两个主要原因。 第一个原因是交互体验。起初我对语音输入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zian 语音输入法">
+<meta property="og:url" content="http://example.com/2026/02/22/Zian-%E8%AF%AD%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95/index.html">
+<meta property="og:site_name" content="simon&#39;s Blog">
+<meta property="og:description" content="今天正式发布 Zian（至安）。从 2026 年 1 月 19 日立项建库，到今天 2 月 18 日，历时正好一个月。 这是我开发的第二个 APP。第一个是专为朋友定制的转写软件 SunnyScribe（最初使用 Python 开发）。后来随着功能不断叠加，它逐渐演变成了一个专业的转写工具。 做 Zian 这个语音输入法算是一个突发奇想，其实有两个主要原因。 第一个原因是交互体验。起初我对语音输入">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-22T21:15:05.000Z">
+<meta property="article:modified_time" content="2026-02-22T14:04:48.659Z">
+<meta property="article:author" content="simon">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2026/02/22/Zian-%E8%AF%AD%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2026/02/22/Zian-%E8%AF%AD%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95/","path":"2026/02/22/Zian-语音输入法/","title":"Zian 语音输入法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Zian 语音输入法 | simon's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">simon's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">simon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/22/Zian-%E8%AF%AD%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="simon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="simon's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Zian 语音输入法 | simon's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Zian 语音输入法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2026-02-22 21:15:05 / Modified: 14:04:48" itemprop="dateCreated datePublished" datetime="2026-02-22T21:15:05+00:00">2026-02-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>今天正式发布 Zian（至安）。从 2026 年 1 月 19 日立项建库，到今天 2 月 18 日，历时正好一个月。</p>
+<p>这是我开发的第二个 APP。第一个是专为朋友定制的转写软件 <strong>SunnyScribe</strong>（最初使用 Python 开发）。后来随着功能不断叠加，它逐渐演变成了一个专业的转写工具。</p>
+<p>做 <strong>Zian</strong> 这个语音输入法算是一个突发奇想，其实有两个主要原因。</p>
+<p>第一个原因是交互体验。起初我对语音输入的需求并不大。之前用过别家的输入法，但体验并不理想：桌面悬浮球很碍眼，而且需要手动点击才能开始，经常是不说话就自动停止，交互非常繁琐。</p>
+<p>第二个原因是因为我当时在想如何实现快捷的输入提示词。我曾经使用过微软拼音的自定义短语功能，或者使用 Windows 系统自带的剪贴板功能，这都是用几个自定义短语或者单词、字母来代表一长串的文字。后来正好这段时间语音输入法比较火，我就想那是不是可以真用语音来说出自定义短语，然后来自动载入提示词呢？但试了几个语音输入法之后，感觉并不符合我的需求。</p>
+<p>于是我想，不如自己设计一个吧。正好在这段时间，<strong>语音识别大模型</strong>（如 SenseVoice）逐渐成熟，让开发一个高精度的语音输入法变得更加简单快捷。</p>
+<p>关于这个名字 Zian 的由来。我在开发这个软件的时候，正好韩剧《我的大叔》翻拍版上映，因为我是这个韩剧的影迷，所以我就起了 Zian 这个名字，算是一种致敬吧。</p>
+<p>真正上手开发后，发现细节远比想象中复杂。不同于 SunnyScribe 的 Python 架构，Zian 采用了 <strong>C++ (后端) + C# (前端)</strong> 的混合架构。后端基于开源项目实现了对阿里 <strong>SenseVoice Small</strong> 模型的调用。虽然该模型目前暂不支持说话人识别和字级时间戳（Word-level Timestamps），但其推理速度极快，对于流式语音输入和短语音转写已经完全够用。我在机制上利用流式输入（Stream）实现实时语音打字，利用非流式输入（Non-stream）实现文件转写功能。</p>
+<p>整个开发过程深度结合了<strong>辅助编程大模型</strong>。只要懂流程、能把需求描述清楚，AI 实现核心逻辑的速度非常快。主要的耗时都在<strong>细节打磨</strong>上——尤其是 C# 前端与 Windows 系统的底层交互、各种输入法功能的适配，这些部分由于涉及具体交互体验，处理起来非常琐碎。</p>
+<p>Zian 延续了我做产品的核心理念：<strong>离线，纯粹的离线</strong>。我没有实现在线检查更新；所有功能与模型都在本地运行，您的语音与文字不会离开电脑。我相信有不少朋友和我有相同的信念。出于对订阅制的反感，Zian 采用一次性买断的定价方式，不会产生后续订阅费用。产品已上线，后续我会逐步实现更多功能，例如让手机端也能离线转写、减轻对电脑算力的依赖等，慢慢完善。</p>
+<hr>
+<p><em>2026年2月18日</em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">simon</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
